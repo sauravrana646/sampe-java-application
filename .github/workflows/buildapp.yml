@@ -52,8 +52,5 @@ jobs:
     - run: |
         jf rt ping
         jfrog rt upload \
-            --url=<your-jfrog-url> \
-          --user=<your-jfrog-user> \
-          --password=<your-jfrog-password> \
-          <path-to-jar-file> \
-          <jfrog-repository>/<path-to-upload>
+            <path-to-jar-file> \
+            <jfrog-repository>/<path-to-upload>
