@@ -22,10 +22,10 @@ jobs:
       run: pwd
     
     - name: Build with Maven
-      run: ./demo/mvnw clean install
+      run: mvn clean install
 
     - name: Run Tests
-      run: ./demo/mvnw test
+      run: mvn test
 
     - name: Build Artifact
-      run: ./demo/mvnw package
+      run: .mvn package
