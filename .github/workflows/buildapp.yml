@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+      
+env:
+    WORK_DIR: '/home/runner/work/sampe-java-application/sampe-java-application/demo'
 
 jobs:
   build:
