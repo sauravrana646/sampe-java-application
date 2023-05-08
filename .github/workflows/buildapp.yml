@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-      
-env:
-    WORK_DIR: '/home/runner/work/sampe-java-application/sampe-java-application/demo'
 
 jobs:
   build:
@@ -40,3 +37,23 @@ jobs:
     - name: Run commnds
       run: ls
       working-directory: ./demo/target
+
+    - uses: jfrog/setup-jfrog-cli@v3
+      env:
+        # JFrog platform url (for example: https://acme.jfrog.io) 
+        JF_URL: ${{ secrets.JF_URL }}
+        
+        # Basic authentication credentials
+        JF_USER: ${{ secrets.JF_USER }}
+        JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+        #or
+        # JFrog Platform access token
+        JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+    - run: |
+        jf rt ping
+        jfrog rt upload \
+            --url=<your-jfrog-url> \
+          --user=<your-jfrog-user> \
+          --password=<your-jfrog-password> \
+          <path-to-jar-file> \
+          <jfrog-repository>/<path-to-upload>
