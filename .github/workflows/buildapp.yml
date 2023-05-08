@@ -19,13 +19,13 @@ jobs:
         distribution: 'adopt'
 
     - name: Run commnds
-      run: ls
+      run: pwd
     
     - name: Build with Maven
-      run: ./mvnw clean install
+      run: ./demo/mvnw clean install
 
     - name: Run Tests
-      run: ./mvnw test
+      run: ./demo/mvnw test
 
     - name: Build Artifact
-      run: ./mvnw package
+      run: ./demo/mvnw package
